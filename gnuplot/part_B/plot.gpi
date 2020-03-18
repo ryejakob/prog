@@ -1,0 +1,12 @@
+set term svg background rgb "white"
+set title "Error-function"
+set key bottom right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "x"
+set ylabel "y"
+set out "plot.svg"
+plot \
+ "out.txt" with lines title "error function"\

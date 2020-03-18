@@ -1,0 +1,15 @@
+set term svg background rgb "white"
+set title "Complex gamma-function"
+set key bottom right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "Re"
+set ylabel "Im"
+set out "plot.svg"
+set hidden3d
+set pm3d at s 
+set view 60, 330, 1, 1
+
+splot [-4.5:4.5][-4:4][0:6] "out.txt" u 1:2:3 with pm3d lt palette 

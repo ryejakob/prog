@@ -1,0 +1,14 @@
+set term svg background rgb "white"
+set title "Error-function"
+set key bottom right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "x"
+set ylabel "y"
+set out "er.svg"
+plot \
+ "out_er.txt" with lines title "error function"\
+,"out.table.txt" with points pt 7 ps 0.7  title "tabulated values"\
+
