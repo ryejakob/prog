@@ -1,0 +1,13 @@
+set term svg background rgb "white"
+set title "Harmonic"
+set key bottom right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "a"
+set ylabel "Energy"
+set out "plot.svg"
+plot \
+ "out.txt" with lines title "Energy"\
+
