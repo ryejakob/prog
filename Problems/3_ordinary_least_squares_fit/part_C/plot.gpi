@@ -1,0 +1,17 @@
+set term svg background rgb "white"
+set title "least square fit"
+set key bottom right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "time [days]"
+set ylabel "Activity"
+set out "plot.svg"
+plot \
+ "out.txt" with lines title "line from fit"\
+,"data.txt" with errorbars title "datapoints" \
+,"out_p.txt" with lines title "\lambda +d\lambda" dashtype "-"\
+,"out_m.txt" with lines title "\lambda -d\lambda" dashtype "-"\
+,"out_p1.txt" with lines title "a+da" dashtype "-"\
+,"out_m1.txt" with lines title "a-d" dashtype "-"\

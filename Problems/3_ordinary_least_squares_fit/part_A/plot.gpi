@@ -1,0 +1,13 @@
+set term svg background rgb "white"
+set title "least square fit"
+set key bottom right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "x"
+set ylabel "y"
+set out "plot.svg"
+plot \
+ "out.txt" with lines title "line from fit"\
+,"data.txt" with errorbars title "datapoints" \

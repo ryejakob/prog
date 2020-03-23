@@ -1,0 +1,13 @@
+set term svg background rgb "white"
+set title "Linear spline"
+set key bottom right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "x"
+set ylabel "y"
+set out "Lin_spl.svg"
+plot \
+ "out.txt" with lines title "line from spline"\
+,"sin_data_fine.txt" with lines title "sine" dashtype "-"\

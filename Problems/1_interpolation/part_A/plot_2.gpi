@@ -1,0 +1,12 @@
+set term svg background rgb "white"
+set title "Tntegral"
+set key bottom right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "x"
+set ylabel "y"
+set out "Integ.svg"
+plot \
+ "out_2.txt" with lines title "line from spline integral"\
