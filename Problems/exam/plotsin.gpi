@@ -1,0 +1,16 @@
+set term svg background rgb "white"
+set title "Akima test using Sin(x)"
+set key top right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "x"
+set ylabel "y"
+set out "akima_sin.svg"
+plot \
+"sindata.txt" u 1:2 with lines title "Sin(x)"\
+,"sindata.txt" u 1:3 with lines title "Akima sub spline"\
+,"sinp.txt" u 1:2 with points title "Table points"\
+
+

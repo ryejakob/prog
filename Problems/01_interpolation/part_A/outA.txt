@@ -1,0 +1,3 @@
+Part A:
+Linear spline of Sin(x) can be seen in Linear_splineA.svg.
+Linear spline integral of Sin(x) can be seen in Linear_integralA.svg.

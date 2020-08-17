@@ -1,13 +1,7 @@
-all: partB.txt #plot.svg
+all: outB.txt
 
-partB.txt: main.exe
-	mono main.exe > partB.txt
-
-plot.svg: plot.gpi out.txt data.txt
-	gnuplot $<
-
-out.txt : main.exe 
-	mono main.exe > out.txt
+outB.txt : main.exe 
+	mono main.exe > outB.txt
 
 main.exe : main.cs gram_s.dll matrix.dll vector.dll olsf.dll
 	mcs -reference:olsf.dll -reference:gram_s.dll -reference:matrix.dll -reference:vector.dll main.cs
@@ -23,3 +17,7 @@ matrix.dll: matrix.cs vector.dll
 
 vector.dll: vector.cs
 	mcs -target:library -out:$@ $<
+
+.PHONY:clean
+clean:
+	rm -f *.dll *.exe *.txt *.svg

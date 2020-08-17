@@ -1,0 +1,3 @@
+Part B:
+Quadratic spline of Sin(x) can be seen in quadratic_splineB.svg.
+The derivative of the aforementioned spline of can be seen in quadratic_derivativeB.svg, and the integral in quadratic_integralB.svg

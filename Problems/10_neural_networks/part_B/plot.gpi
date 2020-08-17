@@ -1,0 +1,15 @@
+set term svg background rgb "white"
+set title "Derivative with ANN"
+set key top right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "x"
+set ylabel "y"
+set out "plotdif.svg"
+plot \
+"out.data.txt" u 1:2 with lines title "Cos(x)"\
+,"out.data.txt" u 1:4 with lines title "Calculated derivativ of Sin(x)"\
+
+

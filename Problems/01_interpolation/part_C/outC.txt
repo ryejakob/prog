@@ -1,0 +1,4 @@
+Part C:
+Cubic spline of Sin(x) can be seen in cubic_splineC.svg.
+The derivative of the aforementioned spline of can be seen in cubic_derivativeC.svg, and the integral in cubic_integralC.svg
+In comparisonC.svg my the calculated cubic spline is compared with spline from plotutils

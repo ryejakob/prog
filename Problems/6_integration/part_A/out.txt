@@ -1,0 +1,6 @@
+Part A: test of integrator:
+i) integrate Sqrt(x) from 0 to 1. The calculated result is 0.666680932893738, and the analytic result is 2/3.
+The result is accepted
+
+ii) integrate 4*Sqrt(1-x*x) from 0 to 1. The calculated result is 3.14159750770263, and the analytic result is pi.
+The result is accepted

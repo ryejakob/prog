@@ -1,0 +1,15 @@
+set term svg background rgb "white"
+set title "Error"
+set key top right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "N number of points"
+set ylabel ""
+set out "plotB.svg"
+plot \
+"out.data.txt" u 1:2 with lines title "Estimated error"\
+,"out.data.txt" u 1:3 with lines title "Differance from analytic result"\
+,"out.data.txt" u 1:4 with lines title "k/Sqrt(N)"\
+

@@ -1,0 +1,13 @@
+Part A:
+i) Test of Jacobi diagonalization with cyclic sweeps:
+In the file test.txt the implementation is tested for a random sysmetic matrix.
+ii) Particle in a box.
+The following is a comparison between the first 5 the caculated and exact energies:
+Number:	Calculated: 	Exact:
+0	9.86648390989623		9.86960440108936
+1	39.428508686589		39.4784176043574
+2	88.5739354443425		88.8264396098042
+3	157.11633874588		157.91367041743
+4	244.795713777931		246.740110027234
+
+In plotA.svg the 5 lowest eigenfunctions are plotted. The result have same form as the analytic result.

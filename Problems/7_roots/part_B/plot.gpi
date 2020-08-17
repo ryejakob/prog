@@ -1,0 +1,14 @@
+set term svg background rgb "white"
+set title "Wavefunction"
+set key bottom right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "r in Bohr radius"
+set ylabel "f"
+set out "plot.svg"
+plot \
+"plot1.txt" u 1:2 with lines title "Calculated"\
+,"plot2.txt" u 1:2 with lines title "Analytic"\
+

@@ -1,0 +1,13 @@
+set term svg background rgb "white"
+set title "Linear spline integral of Sin(x)"
+set key yop right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "x"
+set ylabel "y"
+set out "Linear_integralA.svg"
+plot \
+ "data.txt" u 1:4 with lines title "1-Cos(x)"\
+,"data.txt" u 1:5 with lines title "Linear spline integral of Sin(x)"\

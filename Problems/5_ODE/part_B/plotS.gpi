@@ -1,0 +1,16 @@
+set term svg background rgb "white"
+set title "Comparison of number of susceptible (S) for differen T_{c}"
+set key bottom right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "Time in days"
+set ylabel "Number"
+set out "plotS.svg"
+plot \
+"data2.txt" u 1:2 with lines title "T_{c}=1"\
+,"data3.txt" u 1:2 with lines title "T_{c}=2"\
+,"data1.txt" u 1:2 with lines title "T_{c}=4"\
+,"data4.txt" u 1:2 with lines title "T_{c}=8"\
+

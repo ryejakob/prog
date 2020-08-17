@@ -1,13 +1,13 @@
 set term svg background rgb "white"
 set title "least square fit"
-set key bottom right
+set key top right
 set tics out
 set grid
 set xzeroaxis
 set yzeroaxis
-set xlabel "x"
-set ylabel "y"
-set out "plot.svg"
+set xlabel "Time (days)"
+set ylabel "Activity of ThX (relative units)"
+set out "plotA.svg"
 plot \
- "out.txt" with lines title "line from fit"\
+ "fit.txt" with lines title "line from fit"\
 ,"data.txt" with errorbars title "datapoints" \

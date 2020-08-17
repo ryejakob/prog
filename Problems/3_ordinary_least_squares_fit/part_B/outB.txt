@@ -1,0 +1,6 @@
+Part B:
+The coveriance matrix to the fit displayed in plotA.svg takes the form:
+0.000890277777777778 8.74999999999978E-05
+8.75000000000001E-05 1.24999999999998E-05
+
+The calculated half life (with uncertainty is 4.04451793348687 +/- 0.083437844527438 days. The moderen value for the half life of 224Ra is 3.6319 days, this means the the morderen value is not within estimated uncertainty.

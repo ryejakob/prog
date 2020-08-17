@@ -14,41 +14,38 @@ public class main{
 	//activity
 	vector y = new vector(9);
 	y[0]=117;y[1]=100;y[2]=88;y[3]=72;y[4]=53;y[5]=29.5;y[6]=25.2;y[7]=15.2;y[8]=11.1; 
+	//vectors:
 	vector dy=new vector(y.size);
 	vector lny=new vector(y.size);
 	vector dlny=new vector(y.size);
+	var data=new System.IO.StreamWriter("data.txt");
 	for(int n=0; n<y.size; n++){
 		dy[n]=y[n]/20;
 		lny[n]=Log(y[n]);
 		dlny[n]=dy[n]/y[n];
+		data.WriteLine($"{t[n]} {y[n]} {dy[n]}");
 		}//end for
+	data.Close();
 	Func<double,double>[] f= new Func<double, double>[]{(x) => 1, (x) => -x};
 		
 	olsf fit=new olsf(t,lny,dlny,f);
 
-	//generate data...
-	//for(int n1=0; n1<y.size; n1++){ 
-	//WriteLine($"{t[n1]} {y[n1]} {dy[n1]}");
-	//}//end for 
-
 	vector a= fit.c;
 	Func<double, double> F= (x) => Exp(a[0])*Exp(-a[1]*x);
 	vector dc= fit.dc;
-	Func<double, double> dF= (x) => Exp(a[0]+dc[0])*Exp(-a[1]*x);
-	matrix sigma=fit.Sigma;	
+	Func<double, double> dFp= (x) => Exp(a[0]+dc[0])*Exp(-(a[1]+dc[1])*x);
+	Func<double, double> dFm= (x) => Exp(a[0]-dc[0])*Exp(-(a[1]-dc[1])*x);
 
+	var fi=new System.IO.StreamWriter("fit.txt");
 	for(double n2=0; n2<20; n2+=0.05){
-	WriteLine($"{n2} {F(n2)}");
-	}
-	//WriteLine("The coveriance matrix takes the form:");
-	//WriteLine($"{sigma[0,0]} {sigma[0,1]}");
-	//WriteLine($"{sigma[1,0]} {sigma[1,1]}");
-	//Write("\n");
+		fi.WriteLine($"{n2} {F(n2)} {dFp(n2)} {dFm(n2)}");
+		}//end for
+	fi.Close();
 	
-	//vector dc=fit.dc;
-	//WriteLine($"The moderen value for the half life of 224Ra is 3.6319 days, the calculated value is given as {Log(2)/a[1]}");
-	//WriteLine($"The uncertenty of the calculated half life is {dc[1]/a[1]/a[1]}");
-
+	WriteLine("Part C:");
+	WriteLine("The relevant figure is plotC.svg");
+	
+	
 
 	return 0;	
 }}

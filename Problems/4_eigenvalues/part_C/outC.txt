@@ -1,0 +1,18 @@
+Part C:
+i) Test that calculated eigenvalues with classic Jacobi are the same as the ones calulated by the cyclic sweep for a given random matrix A:
+Classic:	cyclic:
+-0.720401136217145	-0.720401136217145
+-0.237902573133033	-0.237902573133033
+0.162016414132431	0.162016414132431
+0.895363695107922	0.895363695107923
+2.62783375152389	2.62783375152389
+That the clissic method diagonalize a given matrix A:
+0.996527425011866	2.91301457708402E-15	2.1220906289276E-10	0	0	
+0.266795180396547	0.357835788912063	-1.58502042558693E-14	2.62774173496708E-22	0	
+0.974844034749476	0.145527647875961	0.365690403788206	0	0	
+0.927786069888522	0.697697742701367	0.0446257875508749	0.549938373989397	0	
+0.467436722231767	0.269661937965854	0.0290296785668608	0.766279396492187	0.456918159712534	
+
+ii) Does classic improve the number of rotation and the time?
+In plot_rotations.svg and plot_time.svg is the number of rotations and the time used by the classic and the cyclic sweep methods compared.
+The result indicate that classic Jacobi is slower then the cyclic sweep, but use fewer rotations.

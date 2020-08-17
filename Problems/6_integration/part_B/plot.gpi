@@ -1,0 +1,15 @@
+set term svg background rgb "white"
+set title "Model comparison"
+set key bottom right
+set tics out
+set grid
+set xrange [*:*] reverse
+set log xy
+set xlabel "Accuracy goal"
+set ylabel "Number of evaluations"
+set out "plotB.svg"
+plot \
+"data.txt" u 1:2 with lines title "integrator"\
+,"data.txt" u 1:3 with lines title "CC"\
+,"data.txt" u 1:4 with lines title "o8av"\
+

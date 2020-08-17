@@ -8,45 +8,59 @@ using System;
 
 public class main{
 	static int Main() {
+
+	//the data:
 	//time
 	vector t =new vector(9);
 	t[0]=1;t[1]=2;t[2]=3;t[3]=4;t[4]=6;t[5]=9;t[6]=10;t[7]=13;t[8]=15;
 	//activity
 	vector y = new vector(9);
 	y[0]=117;y[1]=100;y[2]=88;y[3]=72;y[4]=53;y[5]=29.5;y[6]=25.2;y[7]=15.2;y[8]=11.1; 
+	//vectors:
 	vector dy=new vector(y.size);
 	vector lny=new vector(y.size);
 	vector dlny=new vector(y.size);
+	//var data=new System.IO.StreamWriter("data.txt");
 	for(int n=0; n<y.size; n++){
-		dy[n]=y[n]/20;
+		dy[n]=y[n]/20; //error on y
 		lny[n]=Log(y[n]);
-		dlny[n]=dy[n]/y[n];
+		dlny[n]=dy[n]/y[n]; //error Ln(y)
+		//data.WriteLine($"{t[n]}  {y[n]} {dy[n]}");
 		}//end for
+	//data.Close();
+
+	//The function:
 	Func<double,double>[] f= new Func<double, double>[]{(x) => 1, (x) => -x};
-		
+	
+	//making the fit:
 	olsf fit=new olsf(t,lny,dlny,f);
-
-	//generate data...
-	//for(int n1=0; n1<y.size; n1++){ 
-	//WriteLine($"{t[n1]} {y[n1]} {dy[n1]}");
-	//}//end for 
-
+	//the calculated parameters:
 	vector a= fit.c;
-	Func<double, double> F= (x) => Exp(a[0])*Exp(a[1]*x);
+	//making a new function using the parameters:
+	//Func<double, double> F= (x) => Exp(a[0])*Exp(-a[1]*x);
+	
+	//generating points to fit:
+	/* var fi=new System.IO.StreamWriter("fit.txt");
+	for(double n2=0; n2<20; n2+=0.05){
+		fi.WriteLine($"{n2} {F(n2)}");
+		}//end for
+	fi.Close(); */
+
+	double hl=Log(2)/a[1]; //calculated half life
+	WriteLine("Part B:");
+	//WriteLine("In plotA.svg is a plot of the experimental data and my best calculated fit.");
+	//WriteLine($"The moderen value for the half life of 224Ra is 3.6319 days, the value calulated from the fit is given as {Log(2)/a[1]}. This is a deviation of {devi} %.");
+
 	matrix sigma=fit.Sigma;	
 
-	//for(double n2=0; n2<20; n2+=0.05){
-	//WriteLine($"{n2} {F(n2)}");
-	//}
-	WriteLine("The coveriance matrix takes the form:");
+	WriteLine("The coveriance matrix to the fit displayed in plotA.svg takes the form:");
 	WriteLine($"{sigma[0,0]} {sigma[0,1]}");
 	WriteLine($"{sigma[1,0]} {sigma[1,1]}");
 	Write("\n");
 	
 	vector dc=fit.dc;
-	WriteLine($"The moderen value for the half life of 224Ra is 3.6319 days, the calculated value is given as {Log(2)/a[1]}");
-	WriteLine($"The uncertenty of the calculated half life is {dc[1]/a[1]/a[1]}");
-
+	WriteLine($"The calculated half life (with uncertainty is {hl} +/- {dc[1]/a[1]/a[1]*Log(2)} days. The moderen value for the half life of 224Ra is 3.6319 days, this means the the morderen value is not within estimated uncertainty.");
+ 
 
 	return 0;	
 }}

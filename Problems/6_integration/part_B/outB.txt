@@ -1,0 +1,17 @@
+Part B:
+i) Integration of 1/sqrt(x) from 0 to 1. (Note I used delta=1e-4 and epsilon=1e-4)
+The analytic result is 2.
+The calculated result without transformation is 1.99999738796403 with 17140 evaluations.
+The calculated result with CC-transformation is 1.9999998903107 with 52 evaluations
+
+ii) Integration of ln/sqrt(1-x*x) from 0 to 1. (Note I used delta=1e-4 and epsilon=1e-4)
+The analytic result is -4.
+The calculated result without transformation is -3.99999834899021 with 29972 evaluations.
+The calculated result with CC-transformation is -3.99999813339603 with 272 evaluations
+
+The CC-transformation seems to lower the number of needed evalutaions significant.
+
+iii) Integrate 4/(1-x²) from 0 to 1. Unless I set a limit on the number of elaluations of the integrator, both methods can find a pracition close to the machine epsilon. Calculated without CC: 3.14159265358979, with CC: 3.14159265358979, and analytic Pi: 3.14159265358979.
+
+In plotB.svg the accuracy and number of evaluations is compared for my integrator the CC-model and o8av from matlib/integration
+o8av is significant faster.

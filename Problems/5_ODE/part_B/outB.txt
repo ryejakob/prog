@@ -1,0 +1,5 @@
+Part B:
+SIR-model
+For my model i set the total population of Denmark to 5800000, the recovery time to 12, the number of infected at time=0 is set to 1000 and the model run over 100 days.
+In plotT4.svg the SIR-model is seen for Tc=4 (in this model most of population end op having recovert from the infection)
+In plotS.svg, plotI.svg and plotR, the behavior of  the S, I and R parameters is compared for differnt Tc

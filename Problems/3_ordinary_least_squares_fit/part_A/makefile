@@ -1,13 +1,10 @@
-all: comparison_to_modern_value.txt #plot.svg
+all: plotA.svg outA.txt
 
-comparison_to_modern_value.txt: main.exe
-	mono main.exe > comparison_to_modern_value.txt
-
-plot.svg: plot.gpi out.txt data.txt
+plotA.svg: plot.gpi fit.txt data.txt
 	gnuplot $<
 
-out.txt : main.exe 
-	mono main.exe > out.txt
+outA.txt fit.txt data.txt: main.exe 
+	mono $< 1> out.txt
 
 main.exe : main.cs gram_s.dll matrix.dll vector.dll olsf.dll
 	mcs -reference:olsf.dll -reference:gram_s.dll -reference:matrix.dll -reference:vector.dll main.cs
@@ -23,3 +20,7 @@ matrix.dll: matrix.cs vector.dll
 
 vector.dll: vector.cs
 	mcs -target:library -out:$@ $<
+
+.PHONY:clean
+clean:
+	rm -f *.dll *.exe *.txt *.svg 

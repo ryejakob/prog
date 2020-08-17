@@ -1,0 +1,15 @@
+set term svg background rgb "white"
+set title " Integral of Akima sub spline of Sin(x)"
+set key top right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "x"
+set ylabel "y"
+set out "akima_sin_integral.svg"
+plot \
+"sindata.txt" u 1:6 with lines title "1-Cos(x)"\
+,"sindata.txt" u 1:7 with lines title "Integral of Akima sub spline"\
+
+

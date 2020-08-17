@@ -1,0 +1,14 @@
+set term svg background rgb "white"
+set title "Quadratic spline of Sin(x)"
+set key top right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "x"
+set ylabel "y"
+set out "quadratic_splineB.svg"
+plot \
+ "data.txt" u 1:2 with lines title "Sin(x)"\
+,"data.txt" u 1:3 with lines title "Spline" dashtype "-"\
+,"points.txt" u 1:2 with points title "Sample points"\

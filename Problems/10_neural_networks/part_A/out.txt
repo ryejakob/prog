@@ -1,0 +1,2 @@
+Part A:
+Test of ann using a gaussian as function by interpolating Sin(x). In plotA.svg the interpolated function is plotted.

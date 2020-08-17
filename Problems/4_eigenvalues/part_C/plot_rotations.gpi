@@ -1,0 +1,13 @@
+set term svg background rgb "white"
+set title "Rotations for Jacobi diagonalization"
+set key bottom right
+set tics out
+set grid
+set log x
+set log y
+set xlabel "Matrix size"
+set ylabel "Rotations "
+set out "plot_rotations.svg"
+plot \
+"rotation_cyc.txt" with linespoints pt 5 title "Cyclic"\
+,"rotation_clas.txt" with linespoints pt 7 title"Classic"\

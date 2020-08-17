@@ -1,0 +1,15 @@
+set term svg background rgb "white"
+set title " Derivative of Akima sub spline of Sin(x)"
+set key top right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "x"
+set ylabel "y"
+set out "akima_sin_derivative.svg"
+plot \
+"sindata.txt" u 1:4 with lines title "Cos(x)"\
+,"sindata.txt" u 1:5 with lines title "Derivative Akima sub spline"\
+
+

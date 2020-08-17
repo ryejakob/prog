@@ -1,0 +1,4 @@
+Part B:
+Fitting Higgs data to Breit-Wigner
+The minimization yeilds m=125.97011802936, Gamma=2.08341029739351 and A=9.85299954540214, when used with the stating guess: m=124, Gamma=3, A=5 and accuracy goal eps=1E-05. 
+The number of iterations was 24

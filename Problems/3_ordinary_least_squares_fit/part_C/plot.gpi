@@ -1,17 +1,15 @@
 set term svg background rgb "white"
 set title "least square fit"
-set key bottom right
+set key top right
 set tics out
 set grid
 set xzeroaxis
 set yzeroaxis
-set xlabel "time [days]"
-set ylabel "Activity"
-set out "plot.svg"
+set xlabel "Time (days)"
+set ylabel "Activity of ThX (relative units)"
+set out "plotC.svg"
 plot \
- "out.txt" with lines title "line from fit"\
-,"data.txt" with errorbars title "datapoints" \
-,"out_p.txt" with lines title "\lambda +d\lambda" dashtype "-"\
-,"out_m.txt" with lines title "\lambda -d\lambda" dashtype "-"\
-,"out_p1.txt" with lines title "a+da" dashtype "-"\
-,"out_m1.txt" with lines title "a-d" dashtype "-"\
+"data.txt" with yerrorbars title "datapoints" \
+, "fit.txt" u 1:2 with lines title "F_{C}" \
+, "fit.txt" u 1:3 with lines title "F_{C-dC}" \
+, "fit.txt" u 1:4 with lines title "F_{C+dC}" \

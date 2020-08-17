@@ -1,0 +1,29 @@
+Part B:
+
+i) Check that the time goes as O(n³).
+By using my least square fit from Problem 3, i get that the time roughly depends of the matrix size N as t=N^(c), with c=3.07607515656453.
+
+ii) Implement the value-by-value method
+Check that the eigenvalues becomes the same as using cyclic sweeps.
+Random generated symmetic matrix A:
+0.645761740228982	0.547152032864817	0.7210591680934	0.0892774602814007	
+0.547152032864817	0.494068338765795	0.916724039202893	0.74963434075454	
+0.7210591680934	0.916724039202893	0.241579455436012	0.585953567449913	
+0.0892774602814007	0.74963434075454	0.585953567449913	0.0325520178454705	
+
+ 
+Calutaled eigenvalues:
+by cyclic:	by value-by-value:
+-0.617003714879004	-0.617003714879002
+-0.574049887161913	-0.574049887161911
+0.363585365956527	0.363585365956526
+2.24142978836065	2.24142978836065
+
+iii) and iv) Compare speed.
+In plot_time.svg the time used by the cyclic sweeps method to calculate alle the eigenvalues, is compared to the time used by the value-by-value method to calculate the first and all eigenvalue(s).
+It is faster to only calculate the first value by the value-by-value method then using cyclic sweeps. But cyclic sweeps is significant the calculated all eigenvalues by the value-by-value method.
+In plot_rotation.svg the number of rotationes is compared.
+
+v) Largest eigenvalue.
+By changing the theta angle from Atan2(2*Apq, Aq-Ap) to Atan2(-2*Apq, App-Aqq) the larges eigenvlaue can be calculated.
+For vector A the value becomes: 2.24142978836065 the same as found by cyclic sweeps.

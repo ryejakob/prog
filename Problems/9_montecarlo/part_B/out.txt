@@ -1,0 +1,3 @@
+Part B:
+In plotB.svg, the error of the plain Monte-Carlo method is seen with a O(1/sqrt(N))
+

@@ -1,0 +1,4 @@
+Part A
+
+Testing the method by integrating (1-Cos(x[0])*Cos(x[1])*Cos(x[2]))^(-1)*Pi^(-3) from (0,0,0) to (pi,pi,pi)
+calulated result 1.38897389489276,	estimated error: 0.00694554715904148, 	atual error: 0.00423003479291251	Number of points: 1000000

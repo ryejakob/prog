@@ -1,0 +1,3 @@
+Part B:
+In this part a gaussian wavelet is used. ANN is once again tested by intpolate Sin(x).
+In plotdif.svg the approximated derivative is plotted with the table value, and in plotint.svg the anti-derivative is plotted with the table value.

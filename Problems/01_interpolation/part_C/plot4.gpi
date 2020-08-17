@@ -1,0 +1,14 @@
+set term svg background rgb "white"
+set title "Cubic spline comparison"
+set key top right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "x"
+set ylabel "y"
+set out "comparisonC.svg"
+plot \
+ "plotutilsSpline.txt" u 1:2 with lines title "Spline from plotutil"\
+,"data.txt" u 1:3 with lines title "My cubic spline" dashtype "-"\
+,"points.txt" u 1:2 with points title "Sample points"\

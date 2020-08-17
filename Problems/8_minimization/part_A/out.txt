@@ -1,0 +1,10 @@
+Part A:
+i) minimum of Rosenbrock valley function
+The analytic value for the minimum is (1,1).
+The calculated minimum is (0.999997064739395, 0.999994124772844)).
+The starting point was (2,3), the accuracy eps=1E-05 and the number of iterations 139
+
+i) minimum of Himmelblau's function
+The analytic value for the minimum is (3.584428, -1.848126).
+The calculated minimum is (3.58442833776738, -1.84812657227921)).
+The starting point was (2.5,4), the accuracy eps=1E-05 and the number of iterations 9

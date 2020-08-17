@@ -1,0 +1,14 @@
+set term svg background rgb "white"
+set title "Time for Jacobi diagonalization"
+set key bottom right
+set tics out
+set grid
+set log x
+set log y
+set xlabel "Matrix size"
+set ylabel "Number of rotations"
+set out "plot_rotation.svg"
+plot \
+"rotation_cyc.txt" with linespoints pt 5 title "Cyclic"\
+,"rotation_1_val.txt" with linespoints pt 7 title"First eigenvalue"\
+,"rotation_all_val.txt" with linespoints pt 9 title "All eigenvalue-by-eigenvalue"\

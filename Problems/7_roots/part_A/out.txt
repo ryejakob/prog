@@ -1,0 +1,6 @@
+Part A:
+i) Test of simple root finding using Cos²(x) (here epsilon used was 1e-5: )
+Analytic value Pi/2=1.5707963267949,	calculated value: 1.56764181452706
+
+ii) Finding min i Rosenbrock
+Analytric solution is (1,1) the calculated result is: 	(0.999814312763322,0.999631600797098)
