@@ -1,0 +1,12 @@
+set term svg background rgb "white"
+set title "i"
+set key bottom right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "x"
+set ylabel "y"
+set out "plot_1.svg" 
+plot "out_1.txt" using (1/$2)*cos($1):(1/$2)*sin($1) with points notitle
+

@@ -1,0 +1,1 @@
+test of dot function calleds using iterface dot(u,u)=14

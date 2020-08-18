@@ -1,0 +1,10 @@
+Part C:
+Test of infinite integrator. I set delta=epsilon=0.0001
+i) test function: Sin⁴(x)/x⁴ from 0 to Infinety. Table value Pi/3.
+My integrator gave the result 1.0472094563785, using 112 evaluations. Estimated error 0.000298023548659232, atual error 1.19051818989746E-05
+o8av gave the result 1.04712776788748, using 72 evaluations.
+
+ii) test function: Exp(-x*x) from -infinity to Infinety. Table value sqrt(pi).
+My integrator gave the result 1.77269051667853, using 168 evaluations. Estimated error 0.000275897584715248, atual error 0.000236665773011069
+o8av gave the result 1.77243751263168, using 80 evaluations.
+

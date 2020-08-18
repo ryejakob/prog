@@ -1,0 +1,27 @@
+1. What is the mcs option to turn off all warnings? 
+
+	start makefile with CSFLAG= -warn:0;
+
+2. What is the mcs option to turn off informational warnings?
+	-warn:3
+
+3. Rewrite this piece of code, x=(a>b?a:b), using the if statement. 
+	if(a>b) {y=a;}
+		else {y=b;}
+
+4. If you need mathematical functions from, say, cmath.dll library, how do you link your program with the library? 
+
+	write:
+	"main.exe : main.cs cmath.dll
+	mcs -reference:cmath.dll main.cs"
+	in the makefile and "using static cmath;" in main...
+	
+
+5. What will the following piece of code print? 
+
+	0, 1, and 0
+	I is just I… 
+	i++ is I=i+1 
+	++i takes I then add 1
+
+

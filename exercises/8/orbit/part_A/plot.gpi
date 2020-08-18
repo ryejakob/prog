@@ -1,0 +1,13 @@
+set term svg background rgb "white"
+set title "Log"
+set key bottom right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "x"
+set ylabel "y"
+set out "plot.svg"
+plot \
+ "out.txt" with lines title "ode.rk23"\
+,"out_log.txt" with points pt 7 ps 0.7  title "Log(x)"\

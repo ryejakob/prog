@@ -1,6 +1,0 @@
-The coveriance matrix takes the form:
-0.000890277777777778 8.74999999999978E-05
-8.75000000000001E-05 1.24999999999998E-05
-
-The moderen value for the half life of 224Ra is 3.6319 days, the calculated value is given as 4.04451793348687
-The uncertenty of the calculated half life is 0.120375364522199

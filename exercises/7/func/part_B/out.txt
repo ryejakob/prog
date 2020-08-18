@@ -1,0 +1,10 @@
+Part B:
+More tests
+ Function: x³/(exp(x)-1) from 0 to infinity
+6.49393940226683=6.49393737654557
+
+ Function: x³*exp(-3*x²) from 0 to infinity
+0.0555555555555556=0.0555562153824538
+
+ Function: sqrt(x)*exp(-x) from 0 to infinity
+0.886226925452758=0.886226551344482

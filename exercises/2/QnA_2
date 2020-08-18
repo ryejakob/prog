@@ -1,0 +1,21 @@
+Questions 31/1 
+
+1. What is the Main method?
+	When first started, the main method is the first part of the program that is calls. Most return ether 0 (if run without problems) or something else indicating error.
+
+2. What is source code, bytecode, and executable code?
+	Source code: .cs-files containing definitions and directives.
+	Bytecode: Is a translation (compilation) of the source code into language a runtime-system can read. For C# bytecode file are .exe (with main) .dil (without main). .exe is also called executable code.
+
+3. How can you compile a C#-program which is wholly contained in one file, say hello.cs into an executable bytecode?
+	Ether by using a makefile or write "mcs hello.cs" is the terminal
+
+4. How do you run the resulting executable code with the mono runtime-system?
+	Write "mono hello.exe" in the terminal.
+
+5. How can you compile the C# source code in the "cmath.cs" into a bytecode library "cmath.cs"?
+	Write "mcs -target:library -out:cmath.dll cmath.cs" in the terminal
+
+6.How can you link a bytecode library, say cmath.dll, when compiling your file with the Main method, say main.cs? 
+
+	Write "mcs -reference:cmath.dll main.cs" in the terminal...

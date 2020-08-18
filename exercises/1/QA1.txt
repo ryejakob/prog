@@ -1,0 +1,11 @@
+Questions intro:
+
+1. You need to type: “basen”.
+2. You need to type: mkdi “tab” --p “tab”…
+3.  Type “mkdir prog/hello -p”
+4.  The -i option
+5.  The -r option
+6.  type “ls -1tr”
+7.  “.” mean this directory, “..” one folder up and ~ reference the home folder (“cd ~ “ sends you back to home…)
+8.  cd leads to home.
+9. The place I (the system user) stores my information. Alternative notation ~ and $Home

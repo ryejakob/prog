@@ -1,0 +1,27 @@
+Part A:
+i)
+my max int = 2147483647
+int.MaxValue=2147483647
+ii)
+my min int = -2147483648
+int.MinValue=-2147483648
+Part B:
+my double epsilon int = 2.22044604925031E-16
+e=2.22044604925031E-16
+my float epsilon int = 1.192093E-07
+e=1.19209289550781E-07
+Part C
+i)
+float_sum_up=15.40368
+float_sum_down=18.80792
+ ii) the differace is due to round off errors... 
+ iii) yes..
+iv)
+double_sum_up=20.9661659720003
+double_sum_down=20.9661659733524
+ iv. the round off error is smaller...
+
+Part D
+Test of approx
+a = 1 and b = 1.00000000001 approx yields True
+a = 1 and b = 1.00000001 approx yields False

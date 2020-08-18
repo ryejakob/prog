@@ -1,0 +1,15 @@
+set term svg background rgb "white"
+set title "Higgs boson ressonance data"
+set key bottom right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "Energy [GeV]"
+set ylabel "Cross section [arb. unit]"
+set out "plotB.svg"
+plot \
+"Data.txt" u 1:2:3 with errorbars title "Higgs data" \
+,"out.data.txt" u 1:2 with lines title "Fit"
+
+

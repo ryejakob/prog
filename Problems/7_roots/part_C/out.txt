@@ -1,0 +1,4 @@
+Part C:
+In plotC.svg the convergence of the solution for the simple boundary condition and more precise is plotted. As expected the more precise boundary yields faster convergence to the exat result -1/2.
+
+
