@@ -20,10 +20,10 @@ public class main{
 	vector F1=plainmc(f1, a1, b1, N1);
 
 	WriteLine($"Part A");
-	//WriteLine($"i) testing the method by integrating Sin²(x) from 0 to Pi (analytic result Pi/2)");
-	//WriteLine($"calulated result {F1[0]},	estimated error: {F1[1]}, 	atual error: {Abs(F1[0]-PI)}	Number of points: {N1}");
+	WriteLine($"i) testing the method by integrating Sin²(x) from 0 to Pi (analytic result Pi/2)");
+	WriteLine($"calulated result {F1[0]},	estimated error: {F1[1]}, 	atual error: {Abs(F1[0]-PI)}	Number of points: {N1}");
 	WriteLine($"");
-
+*/
 	//test by calculating given function...
 	//the function:
 	Func<vector,double> f2 = (x) => 1/(1-Cos(x[0])*Cos(x[1])*Cos(x[2]))*1/(Pow(PI,3));
@@ -35,13 +35,16 @@ public class main{
 	vector b2= new vector(PI,PI,PI); //end
 
 	//caling plainmc:
-	vector F2=plainmc(f2,a2,b2,N2);
+	//vector F2=plainmc(f2,a2,b2,N2);
+	vector F2=SSmc(f2,a2,b2,N2);
 	
+	WriteLine("Part C:");
+	WriteLine("The recursive stratified sampling is tested using same integral as in part 1.");
 	WriteLine($"Testing the method by integrating (1-Cos(x[0])*Cos(x[1])*Cos(x[2]))^(-1)*Pi^(-3) from (0,0,0) to (pi,pi,pi)");
 	WriteLine($"calulated result {F2[0]},	estimated error: {F2[1]}, 	atual error: {Abs(F2[0]-R)}	Number of points: {N2}");
 	//WriteLine($"");
 
-	*/
+	
 
 	return 0;}
 }

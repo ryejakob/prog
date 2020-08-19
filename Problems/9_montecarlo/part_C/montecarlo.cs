@@ -48,16 +48,47 @@ public class montecarlo{
 	}//end plainmc
 
 	//Stratified sampling mc 
-	public static SSmc(Func<vector,double> f, vector a, vector b, int N){
-	//the volume is calculated as:
-	double vol=1;
-	for(int i=0; i<a.size; i++){
-		vol=vol*(b[i]-a[i]);
-		}//end for 
+	public static vector SSmc(Func<vector,double> f, vector a, vector b, int N, double acc=1e-4){
 
+	//sample N random points with plainmc:
+	vector samp=plainmc(f, a, b, N);
+	//check error:
+	if(samp[1] <= acc){
+		//accept average and error:
+		return samp;
+		}//end if
+	else{
 	
-
-
+	int ih=0; //index for highest sub-var
+	double hvar=0; //highest sub-var
+	//subdivide the volume:
+	for(int i=0; i<a.size; i++){
+		vector vol2=b.copy();
+		vol2[i]=vol2[i]-0.5*(b[i]-a[i]);
+		//estimate the sub varians 
+		vector sam1=plainmc(f, a, vol2, N/(a.size*2));
+		vector sam2=plainmc(f, vol2, b, N/(a.size*2));
+		//calculating the total sub-var:
+		double subvar= (Pow(sam1[1],2)+Pow(sam2[1],2));
+		//check if the sub-var is larger:
+		if(subvar>hvar){
+			ih=i;//update index
+			hvar=subvar; //update value
+			}//end if
+		}//end for
+	//make recursive call
+	vector svol=b.copy();
+	svol[ih]=svol[ih]-0.5*(b[ih]-a[ih]);
+	vector svol2=a.copy();
+	svol2[ih]=svol2[ih]+0.5*(b[ih]-a[ih]);
+	vector re1=SSmc(f, a, svol, N/2, acc*Sqrt(N/2));
+	vector re2=SSmc(f, svol2, b, N/2, acc*Sqrt(N/2));
+	vector re=re1+re2;
+	//System.Console.Error.WriteLine($"{re1[0]} {re2[0]} {ih}");
+	return new vector(re[0],Pow(re[1],2)/(N*4));
+	}//end else
+	}//end SSmc
+			
 	
 	
 
