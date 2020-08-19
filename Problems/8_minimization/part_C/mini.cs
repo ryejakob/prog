@@ -2,6 +2,7 @@ using System;
 using static System.Math;
 using static vector;
 using static matrix;
+using static System.Console;
 
 public class qNewton{
 
@@ -83,8 +84,9 @@ public class qNewton{
 	}//end while
 	return x;
 	}//end qnewton
-	
-	
+
+	//first try did not work for some reason	
+	/* 
 	public static vector Downhill(Func<vector,double> f, vector x, double eps, ref int nr, double stepsize=1/5, int maxnr=999){
 	
 	// defining p (saved as vector list) and phi (vector) 
@@ -129,7 +131,7 @@ public class qNewton{
 			il=i;
 			}//end if
 		}//end for
- */
+ 
 	//making pce:
 	vector pce= new vector(x.size);
 	for(int k=0; k<p[0].size; k++){
@@ -191,7 +193,104 @@ public class qNewton{
 	vector vec=p[il];
 	return vec;
 	}//end Downhill
-		
+*/
+	//function to calculate the size of p
+	public static double size(vector[] p){
+	double sum=0;
+	for(int i=1;i<p.Length;i++){
+		sum=Max(sum,(p[0]-p[i]).norm());
+		}//end for 
 
+
+	return sum;
+	}//end size
+
+	public static vector downhill2 (System.Func<vector,double> F,vector x,double eps, ref int nr, double stepsize=1.0/5 ,int maxnr=999){
+
+// defining p (saved as vector list) and phi (vector) 
+	vector[] p=new vector[x.size+1];
+	vector phi=new vector(x.size+1);
+	p[x.size]=x.copy();
+	phi[x.size]=F(p[x.size]);
+	for(int i=0;i<x.size;i++){
+		x[i]+=stepsize;
+		p[i]=x.copy();
+		phi[i]=F(p[i]);
+		x[i]-=stepsize;
+		}//end for
+	
+	int ih=0; int il=0; //idex of highest point and lowest point; 
+	
+	//the while loop:
+	while(size(p)>eps && nr<maxnr){
+	nr++;//number of steps
+	ih=0; il=0; //reset index
+	//finding the highest and lowest points:
+	double pH=phi[0]; double pL=phi[0];
+	for(int i=1; i<phi.size; i++){
+		double pnew=phi[i];
+		if(pnew>pH){
+			pH=pnew;
+			ih=i;
+			}//end if
+		if(pnew<pL){
+			pL=pnew;
+			il=i;
+			}//end if
+		}//end for
+	
+	//calculating pce
+	vector pce=new vector(x.size);
+	for(int i=0; i<phi.size; i++){
+		if(i!=ih){
+			pce=pce+p[i];
+			}//end if
+		}//end for
+	pce/=x.size;
+
+	//making reflection
+	vector pre=2*pce-p[ih];
+	double pRE=F(pre);//saving phi(pre)
+	if(pRE<pL){ 
+		//try expansion:
+		vector pex=3*pce-2*p[ih];
+		double pEX=F(pex);
+		if(pEX<pRE){ 
+			//accept expansion:
+			p[ih]=pex;
+			phi[ih]=pEX;
+			}//end if
+		else{
+			//accept reflection:
+			p[ih]=pre;
+			phi[ih]=pRE;
+			}//end else
+		}//end if
+	else if(pRE<pH){
+		//accept reflection
+		p[ih]=pre;
+		phi[ih]=pRE;
+		}//end else if 
+	else{
+		//try contraction:
+		vector pco=(pce+p[ih])/2;
+		double pCO=F(pco);
+		if(pCO<pH){
+			p[ih]=pco;
+			phi[ih]=pCO;
+			}//end if
+		else{
+			//do reduction
+			for(int i=0; i<phi.size; i++){
+				if(i!=il){
+					p[i]=(p[i]+p[il])/2;
+					phi[i]=F(p[i]);
+					}//end if
+				}//end for
+			}//end else 	
+		  }//end else
+	}//end while
+	return p[il];
+	}//end downhill2
 
 }//end qNewton

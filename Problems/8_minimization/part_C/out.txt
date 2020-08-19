@@ -1,2 +1,10 @@
 Part C:
-0.0078125	0.01171875	999
+i)Test of simplex on Rosenbrock valley function
+The analytic value for the minimum is (1,1).
+The calculated minimum is (1.00000143051714, 1.00000303879721)).
+The starting point was (2,3), the accuracy eps=1E-05 and the number of iterations 0. To comparison the qnewton method used 226 steps.
+
+ii) test of simplex on Himmelblau's function
+The analytic value for the minimum is (3.584428, -1.848126).
+The calculated minimum is (2.99999728384067, 2.00000185458087)).
+The starting point was (2.5,4), the accuracy eps=1E-05 and the number of iterations 48. To comparison the qnewton method used 9 iterations.

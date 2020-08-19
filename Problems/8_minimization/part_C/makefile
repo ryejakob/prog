@@ -20,4 +20,4 @@ vector.dll: vector.cs
 
 .PHONY:clean
 clean:
-	rm -f *.dll *.exe out.*.txt *.svg 
+	rm -f *.dll *.exe out.*.txt *.svg out.txt
